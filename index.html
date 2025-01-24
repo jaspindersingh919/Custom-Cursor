@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <header>
+        <img src="icons8-sport-car-64.png" class="logo">
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <script>
+        let mycursor = document.querySelector('.cursor');
+        document.addEventListener("mousemove",(e) => {
+            let x = e.pageX;
+            let y = e.pageY;
+            mycursor.style.top = y + 'px';
+            mycursor.style.left = x + 'px';
+            document.addEventListener("mouseleave", () => {
+                mycursor.style.display = 'none';
+            })
+            document.addEventListener("mouseenter",() =>{
+                mycursor.style.display = 'block';
+            })
+        })
+        let links = Array.from(document.querySelectorAll('a'));
+        console.log(links);
+        links.forEach(link =>{
+            link.addEventListener("mouseover",()=>{
+                mycursor.style.width = '35px';
+                mycursor.style.height = '35px';
+            })
+            link.addEventListener("mouseleave",()=>{
+                mycursor.style.width = '15px';
+                mycursor.style.height = '15px';
+            })
+        })
+        let links1 = Array.from(document.querySelectorAll('.logo'));
+        console.log(links1);
+        links1.forEach(link =>{
+            link.addEventListener("mouseover",()=>{
+                mycursor.style.width = '70px';
+                mycursor.style.height = '70px';
+            })
+            link.addEventListener("mouseleave",()=>{
+                mycursor.style.width = '15px';
+                mycursor.style.height = '15px';
+            })
+        })
+        
+    </script>
+</body>
+</html>
